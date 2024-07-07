@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+    "noEmit": true,
+    "module": "esnext",
+    "target": "esnext",
+    "lib": [
+      "esnext"
+    ],
+    "baseUrl": ".",
+    "strict": true,
+    "moduleResolution": "Bundler",
+    "types": [
+      "@cloudflare/workers-types/experimental",
+    ]
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test"
+  ]
+}
