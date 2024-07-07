@@ -6,3 +6,4 @@ vitest.config.js
 wrangler.toml
 test/
 yarn.lock
+example/
