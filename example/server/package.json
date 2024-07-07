@@ -1,0 +1,22 @@
+{
+	"name": "y-durable-objects-example-server",
+	"module": "index.ts",
+	"type": "module",
+	"scripts": {
+		"start": "wrangler dev",
+		"test": "vitest",
+		"coverage": "vitest run --coverage"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20240620.0",
+		"typescript": "^5.5.3",
+		"wrangler": "^3.63.1",
+		"y-durable-objects": "workspace:*"
+	},
+	"dependencies": {
+		"hono": "^4.4.12"
+	},
+	"overrides": {
+		"@types/node": "20.8.3"
+	}
+}

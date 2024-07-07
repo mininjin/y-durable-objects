@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Lexical Theme
+ */
+
+/* bullet list */
+.lexical-ul {
+	padding: 0;
+	margin: 0;
+	padding-left: 1rem;
+	list-style-position: outside;
+	list-style-type: disc;
+	position: relative;
+}
+
+.lexical-ul li {
+	position: relative;
+}
+
+.lexical-ul .list-none::before {
+	display: none !important;
+}
+
+.lexical-ul .lexical-ul {
+	list-style-type: circle;
+	padding-left: 2rem;
+}
+
+.lexical-ul .lexical-ul .lexical-ul {
+	list-style-type: none;
+}
+
+.lexical-ul .lexical-ul .lexical-ul li::before {
+	position: absolute;
+	left: -1rem;
+	top: calc(1.75rem / 2 - 0.5rem / sqrt(2) / 2 + 1px);
+	content: "";
+	flex-shrink: 0;
+	width: calc(0.5rem / sqrt(2));
+	height: calc(0.5rem / sqrt(2));
+	border-width: 1px;
+	border-color: currentColor;
+	background-color: currentColor;
+	transform: rotate(45deg);
+}
+
+.lexical-ul .lexical-ul .lexical-ul .lexical-ul li::before {
+	left: -1rem;
+	background-color: white;
+	transform: rotate(45deg);
+}
+
+/* number list */
+.lexical-ol {
+	padding: 0;
+	margin: 0;
+	padding-left: 1rem;
+	list-style-position: outside;
+}
+
+.lexical-ol .lexical-ol {
+	padding-left: 2rem;
+}
+
+.lexical-ol1 {
+	list-style-type: decimal;
+}
+.lexical-ol2 {
+	list-style-type: upper-alpha;
+}
+.lexical-ol3 {
+	list-style-type: lower-alpha;
+}
+.lexical-ol4 {
+	list-style-type: upper-roman;
+}
+.lexical-ol5 {
+	list-style-type: lower-roman;
+}

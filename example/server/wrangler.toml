@@ -1,0 +1,11 @@
+name = "durable-objects"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[durable_objects]
+bindings = [{ name = "Y_DURABLE_OBJECTS", class_name = "YDurableObject" }]
+
+[[migrations]]
+tag = "v1"                       # Should be unique for each entry
+new_classes = ["YDurableObject"]
