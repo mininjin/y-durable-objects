@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { websocketUpgradeMiddleware } from "./middleware/websocket";
 import { ProvidedEnv } from "./env";
-import { YDurableObject } from "y-durable-objects";
+import { YDurableObject } from "@mininjin/y-durable-objects";
 
 const app = new Hono<ProvidedEnv>();
 app.use("*", cors());

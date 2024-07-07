@@ -1,9 +1,14 @@
 {
-	"name": "y-durable-objects",
-	"version": "0.0.0",
-	"license": "MIT",
+	"name": "@mininjin/y-durable-objects",
+	"description": "Cloudflare Workers Durable Objects for Yjs",
+	"version": "0.1.1-alpha.1",
 	"module": "./dist/index.mjs",
-	"types": "dist/index.d.ts",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist",
+		"package.json",
+		"README.md"
+	],
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.4.9",
 		"@cloudflare/workers-types": "^4.20240620.0",
@@ -12,11 +17,11 @@
 		"@rollup/plugin-typescript": "^11.1.6",
 		"hono": "^4.4.12",
 		"rollup": "^4.18.0",
-		"typescript": "^5.5.3"
+		"typescript": "^5.5.3",
+		"vitest": "1.5.3"
 	},
 	"dependencies": {
 		"lib0": "^0.2.94",
-		"vitest": "1.5.3",
 		"y-protocols": "^1.0.6",
 		"yjs": "^13.6.18"
 	},
@@ -28,5 +33,18 @@
 	"workspaces": [
 		"example",
 		"example/server"
-	]
+	],
+	"author": "mininjin",
+	"license": "MIT",
+	"keywords": [
+		"yjs",
+		"cloudflare",
+		"durable-objects",
+		"workers"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mininjin/y-durable-objects.git"
+	},
+	"homepage": "https://github.com/mininjin/y-durable-objects"
 }

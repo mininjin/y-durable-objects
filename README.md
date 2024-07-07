@@ -9,10 +9,10 @@ In Cloudflare Workers Durable Objects' Transaction Storage, there is a [128KiB d
 ## Installation
 
 ```bash
-npm install y-durable-objects
+npm install @mininjin/y-durable-objects
 
 # or with yarn
-yarn add y-durable-objects
+yarn add @mininjin/y-durable-objects
 
 ```
 
@@ -21,7 +21,7 @@ yarn add y-durable-objects
 ### Basic Usage
 
 ```ts
-import { YDurableObject, YDurableObjectOptions } from "y-durable-objects";
+import { YDurableObject, YDurableObjectOptions } from "@mininjin/y-durable-objects";
 
 const options: YDurableObjectOptions = {
   // Options here
