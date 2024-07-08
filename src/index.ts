@@ -1,5 +1,4 @@
 import { DurableObject } from "cloudflare:workers";
-import type { Env } from "hono";
 import { WSSharedDoc } from "./ws-shared-doc";
 import {
 	YDurableObjectPersistence,
@@ -8,7 +7,7 @@ import {
 
 export type YDurableObjectOptions = YDurableObjectPersistenceOptions;
 
-export class YDurableObject<T extends Env = any> extends DurableObject<T> {
+export class YDurableObject<T = any> extends DurableObject<T> {
 	readonly doc = new WSSharedDoc<WebSocket>();
 	readonly persistence: YDurableObjectPersistence;
 
