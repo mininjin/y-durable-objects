@@ -9,6 +9,8 @@
     "baseUrl": ".",
     "strict": true,
     "moduleResolution": "Bundler",
+    "declaration": true,
+    "outDir": "./dist",
     "types": [
       "@cloudflare/workers-types/experimental",
     ]

@@ -11,6 +11,7 @@ export default defineConfig({
 		file: "dist/index.mjs",
 		sourcemap: true,
 	},
+	external: [/^cloudflare:/],
 	plugins: [
 		commonjs(),
 		nodeResolve({
