@@ -11,7 +11,7 @@ export default defineConfig({
 		file: "dist/index.mjs",
 		sourcemap: true,
 	},
-	external: [/^cloudflare:/],
+	external: [/^cloudflare:/, "yjs"],
 	plugins: [
 		commonjs(),
 		nodeResolve({
