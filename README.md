@@ -37,9 +37,31 @@ export class WebSocketServer extends YDurableObject<Env> {
 
 ### Options
 
-- `flushBytes` - Byte count threshold to flush updates. When the sum of bytes of updates exceeds this threshold, the updates will be flushed automatically, and the update count and the byte count will be reset. Default: `10 * 1024` (10KiB)
-- `flushUpdateClock` - Update count threshold to flush updates. When the total number of updates exceeds this threshold, the updates will be flushed automatically. Default: `300`
-- `maxChunkBytes` - Maximum byte size of each merged update. Default: `100 * 1024` (100KiB)
+#### `flushBytes: number`
+
+Byte count threshold to flush updates. When the sum of bytes of updates exceeds this threshold, the updates will be flushed automatically, and the update count and the byte count will be reset. Default: `10 * 1024` (10KiB)
+
+#### `flushUpdateClock: number`
+
+Update count threshold to flush updates. When the total number of updates exceeds this threshold, the updates will be flushed automatically. Default: `300`
+
+#### `maxChunkBytes: number`
+
+Maximum byte size of each merged update. Default: `100 * 1024` (100KiB)
+
+### Methods
+
+#### `async getYDoc(): Promise<Y.Doc>`
+
+Retrieves the current Y.Doc instance. Use this method to get the latest state of the Yjs document from persistent storage.
+
+#### `onYDocUpdate(): void | Promise<void>`
+
+This method is called whenever the Y.Doc instance is updated. Override this method to handle document updates. A common use case is to set an alarm using the Alarm API to notify external servers about the updates.
+
+#### `onAwarenessUpdate(): void | Promise<void>`
+
+This method is called whenever the awareness is updated. Override this method to handle changes in user presence or metadata.
 
 ## Example
 

@@ -22,4 +22,22 @@ app.get("/:id", websocketUpgradeMiddleware(), async (ctx) => {
 
 export default app;
 
-export { YDurableObject };
+export class YDurableObjectExample extends YDurableObject<
+	ProvidedEnv["Bindings"]
+> {
+	constructor(ctx: DurableObjectState, env: ProvidedEnv["Bindings"]) {
+		super(ctx, env);
+	}
+
+	async onYDocUpdate() {
+		const alarm = await this.ctx.storage.getAlarm();
+		if (alarm != null) {
+			await this.ctx.storage.deleteAlarm();
+		}
+		await this.ctx.storage.setAlarm(Date.now() + 5 * 1000);
+	}
+
+	async alarm() {
+		console.info("Alarm Executed!!!");
+	}
+}

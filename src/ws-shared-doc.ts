@@ -123,7 +123,7 @@ export class WSSharedDoc<T extends Object> extends Doc {
 	 *
 	 * @param message
 	 *
-	 * @returns void
+	 * @returns message type. null if error.
 	 */
 	message(conn: T, message: Uint8Array) {
 		try {
@@ -149,10 +149,12 @@ export class WSSharedDoc<T extends Object> extends Doc {
 					);
 					break;
 			}
+			return messageType;
 		} catch (err) {
 			console.error(err);
 			// @ts-ignore
 			this.emit("error", [err]);
+			return null;
 		}
 	}
 

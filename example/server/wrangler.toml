@@ -4,8 +4,8 @@ compatibility_date = "2024-01-01"
 compatibility_flags = ["nodejs_compat"]
 
 [durable_objects]
-bindings = [{ name = "Y_DURABLE_OBJECTS", class_name = "YDurableObject" }]
+bindings = [{ name = "Y_DURABLE_OBJECTS", class_name = "YDurableObjectExample" }]
 
 [[migrations]]
 tag = "v1"                       # Should be unique for each entry
-new_classes = ["YDurableObject"]
+new_classes = ["YDurableObjectExample"]

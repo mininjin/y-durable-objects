@@ -1,7 +1,7 @@
 {
 	"name": "@mininjin/y-durable-objects",
 	"description": "Cloudflare Workers Durable Objects for Yjs",
-	"version": "0.2.0-alpha.1",
+	"version": "0.2.0-alpha.2",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"files": [

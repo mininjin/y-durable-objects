@@ -1,5 +1,5 @@
 import { DurableObject } from "cloudflare:workers";
-import { WSSharedDoc } from "./ws-shared-doc";
+import { MESSAGE_TYPE, WSSharedDoc } from "./ws-shared-doc";
 import {
 	YDurableObjectPersistence,
 	YDurableObjectPersistenceOptions,
@@ -58,7 +58,16 @@ export class YDurableObject<T = any> extends DurableObject<T> {
 		if (!(message instanceof ArrayBuffer)) return;
 
 		const update = new Uint8Array(message);
-		this.doc.message(ws, update);
+		const updateType = this.doc.message(ws, update);
+
+		switch (updateType) {
+			case MESSAGE_TYPE.UPDATE:
+				await this.onYDocUpdate();
+				break;
+			case MESSAGE_TYPE.AWARENESS:
+				await this.onAwarenessUpdate();
+				break;
+		}
 	}
 
 	async webSocketError(ws: WebSocket): Promise<void> {
@@ -72,6 +81,9 @@ export class YDurableObject<T = any> extends DurableObject<T> {
 	async getYDoc() {
 		return this.persistence.getYDoc();
 	}
+
+	onYDocUpdate(): void | Promise<void> {}
+	onAwarenessUpdate(): void | Promise<void> {}
 
 	private connect(ws: WebSocket) {
 		this.doc.setupConn(ws, (message) => {
