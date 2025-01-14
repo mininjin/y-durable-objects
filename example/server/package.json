@@ -3,18 +3,18 @@
 	"module": "index.ts",
 	"type": "module",
 	"scripts": {
-		"start": "wrangler dev",
+		"dev": "wrangler dev",
 		"test": "vitest",
 		"coverage": "vitest run --coverage"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20240620.0",
-		"@mininjin/y-durable-objects": "^0.1.0",
+		"@cloudflare/workers-types": "^4.20250109.0",
+		"@mininjin/y-durable-objects": "workspace:^",
 		"typescript": "^5.5.3",
-		"wrangler": "^3.63.1"
+		"wrangler": "^3.101.0"
 	},
 	"dependencies": {
-		"hono": "^4.4.12"
+		"hono": "^4.6.16"
 	},
 	"overrides": {
 		"@types/node": "20.8.3"
