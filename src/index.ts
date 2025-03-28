@@ -71,10 +71,13 @@ export class YDurableObject<T = any> extends DurableObject<T> {
 	}
 
 	async webSocketError(ws: WebSocket): Promise<void> {
+		console.error("WebSocket error occurred");
 		await this.disconnect(ws);
+		ws.close(undefined, "Some error occurred in WebSocket client");
 	}
 
-	async webSocketClose(ws: WebSocket): Promise<void> {
+	async webSocketClose(ws: WebSocket, code: number): Promise<void> {
+		ws.close(code, "Durable Object is closing WebSocket connection");
 		await this.disconnect(ws);
 	}
 
